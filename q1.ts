@@ -1,9 +1,20 @@
+// รหัส นศ.:660610778
+
+// ชื่อ-สกุล :พิธิวิท เนตรคำยวง
 // const axios = require("axios");
 import axios from "axios";
 
 /* assign interface/type to the function definition properly */
 const getUser = async (userId: number) => {
   /* Your code here */
+  try{
+    const userresp = await axios.get('https://jsonplaceholder.typicode.com/users/${userId}');
+    const user = userresp.data;
+    return '${user.name}';
+  }
+  catch(err){
+    return 'INVALID USER ID';
+  }
 };
 
 //test case
