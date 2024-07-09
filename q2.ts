@@ -8,11 +8,11 @@ import axios from "axios";
 const getTodo = async (todoId: number) => {
   /* Your code here */
   try{
-    const userresp = await axios.get('https://jsonplaceholder.typicode.com/users/${userId}')
-    const user = userresp.data;
-    const usertodo = await axios.get('https://jsonplaceholder.typicode.com/todos/{todoId}')
+    const usertodo = await axios.get(`https://jsonplaceholder.typicode.com/todos/${todoId}`)
     const todo = usertodo.data;
     const ID = todo.userId
+    const userresp = await axios.get(`https://jsonplaceholder.typicode.com/users/${ID}`)
+    const user = userresp.data;
 
     return {
       owner: user.name,
